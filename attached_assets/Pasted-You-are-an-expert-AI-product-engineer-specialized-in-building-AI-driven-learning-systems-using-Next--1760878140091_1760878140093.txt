@@ -1,0 +1,209 @@
+You are an expert AI product engineer specialized in building AI-driven learning systems using Next.js 14 (App Router), n8n automation, LLM APIs, and Vector Databases (e.g. Pinecone, Qdrant, Weaviate, pgvector).
+
+Your mission is to design and generate the full product — a chat-based learning ecosystem where a central chatbot drives user learning, automatically creating flashcards, notes, summaries, and corrections based on user interactions.
+
+🎯 Product Overview
+
+Build a Learning Ecosystem consisting of:
+
+Chat Interface (Core)
+
+Central chatbot for all interactions.
+
+Context-aware responses.
+
+Supports triggers: “add flashcard”, “add note”, “summarize”, “correct me”.
+
+Memory System
+
+Notes database.
+
+Flashcards with spaced-repetition scheduling.
+
+Vector DB for semantic memory and contextual recall.
+
+Embeddings computed via LLM API.
+
+Automation Layer (n8n)
+
+Handles workflows:
+
+Add note → compute embedding → insert into vector DB.
+
+Flashcard review notifications.
+
+External sync (Notion, Anki, etc.).
+
+Webhook-based communication between Next.js and n8n.
+
+Analytics & Dashboard
+
+Shows learning progress, weak areas, upcoming reviews, and knowledge graph of concepts.
+
+Integration Hooks
+
+Optionally connect to Notion / Obsidian / Anki via n8n.
+
+🧩 Tech Stack Requirements
+
+Frontend: Next.js 14 (App Router) + TailwindCSS + Shadcn UI components.
+
+Backend: Next.js Route Handlers + optional Node microservices.
+
+Database: PostgreSQL (for structured data) + Vector DB (for embeddings).
+
+Automation: n8n (self-hosted or cloud).
+
+AI Models: OpenAI / Anthropic / Gemini for chat, summarization, embeddings.
+
+Deployment: Vercel (frontend) + Render / Railway / Docker (backend services).
+
+⚙️ Core Functional Requirements
+1. Chat System
+
+Real-time chat with LLM.
+
+Context-aware responses using retrieved notes/flashcards.
+
+Streamed responses for responsiveness.
+
+2. Flashcards
+
+Automatically generated from chat or content.
+
+Stored with spaced-repetition intervals.
+
+Daily review queue.
+
+3. Notes
+
+Auto-summaries from chats or uploads.
+
+Tagging by concept/topic.
+
+Embeddings stored in vector DB.
+
+4. Semantic Memory
+
+Search across chats, notes, flashcards via embeddings.
+
+Include relevant items in prompt context for better recall.
+
+5. n8n Workflows
+
+Create note → embedding → vector upsert.
+
+Flashcard review → notification → status update.
+
+External sync (Notion/Anki).
+
+6. Dashboard
+
+Display learning streaks, weak topics, total flashcards, review due, concept map (knowledge graph view).
+
+🧰 Implementation Instructions
+
+Generate:
+
+Folder structure for monorepo (apps/web, packages/db, etc.).
+
+Postgres schema for:
+
+users
+
+messages
+
+notes
+
+flashcards
+
+embeddings
+
+reviews
+
+Next.js Route Handlers for:
+
+/api/chat
+
+/api/actions/generate-flashcards
+
+/api/actions/summarize
+
+/api/search
+
+LLM integration layer (for chat + embeddings).
+
+Vector DB integration code (Pinecone or Qdrant).
+
+n8n workflow definitions (JSON) for:
+
+Create Note workflow.
+
+Review reminder workflow.
+
+Frontend UI components:
+
+Chat interface.
+
+Flashcard viewer.
+
+Notes list.
+
+Dashboard page with charts.
+
+Prompt templates (system messages) for flashcard generation, summarization, and correction.
+
+🧠 AI Development Guidelines
+
+Code should be modular, production-ready, and readable.
+
+Use TypeScript everywhere.
+
+Write minimal but robust APIs (RESTful or GraphQL).
+
+Prefer server actions + edge functions for low latency.
+
+Use vector search for context augmentation in chat prompts.
+
+Document every module with a brief JSDoc or comment block.
+
+Include .env.example with all required environment variables.
+
+Output both code and explanation.
+
+🚀 Output Format
+
+Respond in the following structure:
+
+### 1. Architecture Overview
+(diagram or textual flow)
+
+### 2. Folder Structure
+
+### 3. Database Schema (SQL or Prisma schema)
+
+### 4. Backend (Route Handlers / APIs)
+
+### 5. LLM + Vector DB Integration Code
+
+### 6. n8n Workflow Definitions (JSON)
+
+### 7. Frontend Components (React/Tailwind)
+
+### 8. Example Prompts
+
+### 9. Deployment Notes
+
+🧭 Additional Notes
+
+Ensure it’s extensible — future agents (Planner, Coach, Tutor) can plug into the same ecosystem.
+
+Maintain clear modular boundaries (ChatCore, Memory, Analytics, Automations).
+
+Keep initial code deployable with minimal configuration.
+
+Add clear TODOs for future features (voice, peer learning, gamification).
+
+🪄 Final Goal
+
+Produce ready-to-use code (or detailed blueprint + working examples) to bootstrap the entire Learning Ecosystem in a single cohesive structure — everything tied to chat-driven actions.
